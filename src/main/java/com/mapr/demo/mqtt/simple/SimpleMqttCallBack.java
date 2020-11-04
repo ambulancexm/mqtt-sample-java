@@ -11,8 +11,8 @@ public class SimpleMqttCallBack implements MqttCallback {
   }
 
   public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
-	  System.out.println("reception");
-	  DBLogging.writeToDb(topic,mqttMessage);
+	  System.out.println("reception" + topic.toString());
+//	  DBLogging.writeToDb(topic,mqttMessage);
     
   }
 
