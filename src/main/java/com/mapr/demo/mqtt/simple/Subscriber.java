@@ -39,7 +39,8 @@ public class Subscriber {
     client.connect();
 
     client.subscribe(topic);
-//String[] recievedValuesAsSrings = new String(payload).split("/");
+    
+
   }
 
 }
