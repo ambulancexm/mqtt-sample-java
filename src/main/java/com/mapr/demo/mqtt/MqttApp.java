@@ -10,7 +10,7 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 public class MqttApp {
 
   public static void main(String[] args) throws MqttException {
-
+	  
     if (args.length < 1) {
       throw new IllegalArgumentException("Must have either 'publisher' or 'subscriber' as argument");
     }
