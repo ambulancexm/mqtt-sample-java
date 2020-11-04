@@ -30,7 +30,7 @@ public class Publisher {
     message.setPayload(messageString.getBytes());
     
     client.connect();
-//    System.out.println("\tMessage '"+ messageString +"' to 'iot_data'");
+
 
     client.disconnect();
 

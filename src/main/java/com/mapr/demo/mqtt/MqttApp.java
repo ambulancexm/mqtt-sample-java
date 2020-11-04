@@ -1,8 +1,9 @@
 package com.mapr.demo.mqtt;
 
+import org.eclipse.paho.client.mqttv3.MqttException;
+
 import com.mapr.demo.mqtt.simple.Publisher;
 import com.mapr.demo.mqtt.simple.Subscriber;
-import org.eclipse.paho.client.mqttv3.MqttException;
 
 /**
  * Basic launcher for Publisher and Subscriber
