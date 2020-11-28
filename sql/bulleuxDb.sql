@@ -20,14 +20,14 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `bulleuxDb`
 --
-CREATE DATABASE IF NOT EXISTS bulleuxDb
+
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `sensorTest`
 --
 
-CREATE TABLE IF NOT EXISTS `sensorTest` (
+CREATE TABLE `sensorTest` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `projet` varchar(50) DEFAULT NULL,
   `line` int(11) DEFAULT NULL,
