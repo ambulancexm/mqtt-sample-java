@@ -303,3 +303,6 @@
 2020-11-27 12:04:59,234 DEBUG [MQTT Call: paho49057654833229] c.m.d.m.s.DBLogging [DBLogging.java:93] -----c'est connecté-----
 2020-11-27 12:05:01,621 DEBUG [MQTT Call: paho49057654833229] c.m.d.m.s.DBLogging [DBLogging.java:93] -----c'est connecté-----
 2020-11-27 12:05:19,847 DEBUG [MQTT Call: paho49057654833229] c.m.d.m.s.DBLogging [DBLogging.java:93] -----c'est connecté-----
+2020-11-27 20:15:34,764 DEBUG [MQTT Call: paho64031128822511] c.m.d.m.s.DBLogging [DBLogging.java:93] -----c'est connecté-----
+2020-11-27 20:15:51,291 DEBUG [MQTT Call: paho64031128822511] c.m.d.m.s.DBLogging [DBLogging.java:93] -----c'est connecté-----
+2020-11-27 20:16:08,039 DEBUG [MQTT Call: paho64031128822511] c.m.d.m.s.DBLogging [DBLogging.java:93] -----c'est connecté-----
