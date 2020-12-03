@@ -1,5 +1,5 @@
 
-# projet de reception/envoi de message avec gestion des message par retour
+# projet de reception/envoi de message avec gestion des messages par retour
 ## Prerequisite
 
 * Maven 3.3.x
