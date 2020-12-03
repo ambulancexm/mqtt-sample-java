@@ -1,4 +1,4 @@
-package com.mapr.demo.mqtt.simple;
+package com.mapr.demo.mqtt.simple.database;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
