@@ -21,39 +21,7 @@ public class DBLogging {
     
     public static void main(String[] args) {
     	
-//    	try {
-//            properties.load(resourcesInputStream);
-//        } catch (IOException e) {
-//            LOGGER.warn("Cannot read property ", e);
-//        }
-//    	String JdbcURL = properties.getProperty("db.url")+properties.getProperty("db.name");
-//        String Username = properties.getProperty("db.username");
-//        String password = properties.getProperty("db.password");
-//        Connection con = null;
-//        PreparedStatement pstmt = null;
-//        ResultSet rst = null;
-//        
-//            try
-//            {
-//                con = DriverManager.getConnection(JdbcURL , Username, password);
-//                if(!con.isClosed()) {
-//                	System.out.println("c'est connecté");           	
-//                }
-//            pstmt = con.prepareStatement(SELECT);
-//            rst = pstmt.executeQuery();
-//            System.out.println("Id\t\tName\t\tAge\n");
-//            while(rst.next()) {
-//               System.out.print(rst.getInt(1));
-//               System.out.print("\t\t"+rst.getString(2));
-//               System.out.print("\t\t"+rst.getInt(3));
-//               System.out.println();
-//            }
-//         } catch(Exception exec) {
-//            exec.printStackTrace();
-//         }
-//    	MqttMessage mq = new MqttMessage();
-//    	byte[] payload = {0x00};
-//    	mq.setPayload(payload);
+//    	
     	mq.setPayload(payload);
     	DBLogging.writeToDb("test/1/00:00:00:00:00:00/temp", "2");
 	}
