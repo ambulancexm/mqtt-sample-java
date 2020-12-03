@@ -109,6 +109,7 @@ public class DBLogging {
 	        pstmt.setTimestamp(7, sqlTime);
 	        
 	        pstmt.execute();
+	        con.close();
         } catch (SQLException s) {
                 LOGGER.debug("retour de querry "+ s.getMessage());
         }
