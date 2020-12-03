@@ -22,9 +22,13 @@ public class SimpleMqttCallBack implements MqttCallback {
   public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
 	  System.out.println("reception : " + topic.toString() +" : "+ mqttMessage.toString());
 	  try {
-		  if(topic.equals("request")) {
+		  if(topic.contains("request")) {
 			  LOGGER.debug("on est dans request");
-		  }else {
+		  }
+		  if(topic.contains("sensor")) {
+			  LOGGER.debug("on est dans sensor");
+		  }
+		  else {
 			  DBLogging.writeToDb(topic, new String(mqttMessage.getPayload()));  
 		  }
 		
