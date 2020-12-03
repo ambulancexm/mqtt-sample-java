@@ -29,7 +29,7 @@ public class SimpleMqttCallBack implements MqttCallback {
 		  }
 		
 	} catch (Exception e) {
-		LOGGER.debug(e.getMessage()+ "on ne bloque pas ");
+		LOGGER.debug(e.getMessage()+ " on ne bloque pas ");
 	}
   }
 
