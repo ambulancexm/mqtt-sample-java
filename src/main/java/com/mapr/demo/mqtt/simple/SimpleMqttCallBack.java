@@ -6,11 +6,17 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.mapr.demo.mqtt.simple.database.ConnectionDb;
 import com.mapr.demo.mqtt.simple.database.DBLogging;
+import com.mapr.demo.mqtt.simple.database.DBRequest;
+
+
 
 public class SimpleMqttCallBack implements MqttCallback {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(DBLogging.class.getName());
+	private DBRequest dbRequest;
+	private ConnectionDb db; 
 	
 	Thread thread = new Thread();
 	long sleepTime = 2000;
@@ -18,18 +24,33 @@ public class SimpleMqttCallBack implements MqttCallback {
 	public void connectionLost(Throwable throwable) {
     System.out.println("Connection to MQTT broker lost!");
   }
-
+/**
+ * cette fonction sert de dispacheur 
+ * sensor : pour la reception des données à mettre en base
+ * request : pour questionner la base de donnée
+ * 
+ * 
+ * 
+ * 
+ */
   public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
 	  System.out.println("reception : " + topic.toString() +" : "+ mqttMessage.toString());
 	  try {
 		  if(topic.contains("request")) {
 			  LOGGER.debug("on est dans request");
+//			  dbRequest = new DBRequest(mqttMessage.toString());
+			  db = new ConnectionDb();
+			  db.findIot();
 		  }
 		  if(topic.contains("sensor")) {
 			  LOGGER.debug("on est dans sensor");
+			  db = new ConnectionDb();
+			  db.create();
 		  }
 		  else {
-			  DBLogging.writeToDb(topic, new String(mqttMessage.getPayload()));  
+//			  DBLogging.writeToDb(topic, new String(mqttMessage.getPayload())); 
+			  db = new ConnectionDb();
+			  db.CreateIotMqtt(topic, new String(mqttMessage.getPayload()));
 		  }
 		
 	} catch (Exception e) {

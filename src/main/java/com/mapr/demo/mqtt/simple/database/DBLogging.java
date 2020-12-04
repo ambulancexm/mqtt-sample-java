@@ -36,6 +36,8 @@ public class DBLogging {
         } catch (IOException e) {
             LOGGER.warn("Cannot read property ", e);
         }
+    	
+    	
     	String JdbcURL = properties.getProperty("db.url")+properties.getProperty("db.name");
         String Username = properties.getProperty("db.username");
         String password = properties.getProperty("db.password");
