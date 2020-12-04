@@ -45,17 +45,16 @@ public class ConnectionDb  implements Crudable{
         try{
         	con = DriverManager.getConnection(JdbcURL , Username, password);
         	if(con.isClosed()) {
-            	LOGGER.debug("-----PAS CONNECTÉ-------");
-            }else {
-            	LOGGER.debug("-----c'est connecté-----");
-            	        	
+            	LOGGER.warn("pas connecté a la base de données ");
             }
+            	        	
+            
         	
-        	LOGGER.debug("dans la connection");
+        	
         	
 	        
         } catch (SQLException s) {
-                LOGGER.debug("retour de querry "+ s.getMessage());
+                LOGGER.warn("retour de querry "+ s.getMessage());
         }
         }
 	
