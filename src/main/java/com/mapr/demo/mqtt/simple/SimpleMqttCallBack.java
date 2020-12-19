@@ -35,22 +35,26 @@ public class SimpleMqttCallBack implements MqttCallback {
  */
   public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
 	  System.out.println("reception : " + topic.toString() +" : "+ mqttMessage.toString());
+	  db = new ConnectionDb();
 	  try {
 		  if(topic.contains("request")) {
 			  LOGGER.debug("on est dans request");
 //			  dbRequest = new DBRequest(mqttMessage.toString());
-			  db = new ConnectionDb();
+			  if(mqttMessage.equals("update"))
+			  
 			  db.findIot();
 		  }
 		  if(topic.contains("sensor")) {
 			  LOGGER.debug("on est dans sensor");
-			  db = new ConnectionDb();
-			  db.create();
+			  db.CreateIotMqtt(topic, new String(mqttMessage.getPayload()));
+//			  db.create();
+		  }
+		  if(topic.contains("update")) {
+			  
 		  }
 		  else {
 //			  DBLogging.writeToDb(topic, new String(mqttMessage.getPayload())); 
-			  db = new ConnectionDb();
-			  db.CreateIotMqtt(topic, new String(mqttMessage.getPayload()));
+//			  db.CreateIotMqtt(topic, new String(mqttMessage.getPayload()));
 		  }
 		
 	} catch (Exception e) {
