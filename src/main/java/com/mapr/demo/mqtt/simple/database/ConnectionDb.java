@@ -97,13 +97,17 @@ public class ConnectionDb  implements Crudable{
 	
 	public boolean CreateIotMqtt(String topic, String payload) {
 		
-		String[] recievedTopicAsSrings = topic.split("/");
+		String[] recievedTopicAsSrings = topic.split("/",4);
 	    String project = recievedTopicAsSrings[0];
 	    int line = Integer.parseInt(recievedTopicAsSrings[1]);
 	    String mac = recievedTopicAsSrings[2];
 	    String name = recievedTopicAsSrings[3];
 	    double value = Double.parseDouble(payload);
-	    
+	    int cpt =0;
+	    for (String item : recievedTopicAsSrings) {
+			System.out.println("["+ cpt +"]" +item);
+			cpt++;
+		}
 		
 		try {
 			pstmt = con.prepareStatement(insert);
