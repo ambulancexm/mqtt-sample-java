@@ -104,10 +104,10 @@ public class ConnectionDb  implements Crudable{
 	    String name = recievedTopicAsSrings[3];
 	    double value = Double.parseDouble(payload);
 	    int cpt =0;
-	    for (String item : recievedTopicAsSrings) {
-			System.out.println("["+ cpt +"]" +item);
-			cpt++;
-		}
+//	    for (String item : recievedTopicAsSrings) {
+//			System.out.println("["+ cpt +"]" +item);
+//			cpt++;
+//		}
 		
 		try {
 			pstmt = con.prepareStatement(insert);
