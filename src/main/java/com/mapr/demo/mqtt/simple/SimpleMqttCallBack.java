@@ -38,21 +38,26 @@ public class SimpleMqttCallBack implements MqttCallback {
 	  db = new ConnectionDb();
 	  try {
 		  if(topic.contains("request")) {
-			  LOGGER.debug("on est dans request");
-//			  dbRequest = new DBRequest(mqttMessage.toString());
-			  if(mqttMessage.equals("update"))
+			  LOGGER.debug("on est dans request");			  
 			  
-			  db.findIot();
+			  if(mqttMessage.toString().equals("update")) {
+				  LOGGER.debug("je demande si il faut faire une mise a jour");
+				  Publisher.send("retour/nodemcu", "123412234");
+			  }
+			  else if(mqttMessage.equals("findiot")) {
+				  db.findIot();
+			  }
 		  }
-		  if(topic.contains("sensor")) {
+		  else if(topic.contains("sensor")) {
 			  LOGGER.debug("on est dans sensor");
 			  db.CreateIotMqtt(topic, new String(mqttMessage.getPayload()));
 //			  db.create();
 		  }
-		  if(topic.contains("update")) {
+		  else if(topic.contains("update")) {
 			  
 		  }
 		  else {
+			  LOGGER.debug("j'ai reçu mais je n'en fais rien");
 //			  DBLogging.writeToDb(topic, new String(mqttMessage.getPayload())); 
 //			  db.CreateIotMqtt(topic, new String(mqttMessage.getPayload()));
 		  }
