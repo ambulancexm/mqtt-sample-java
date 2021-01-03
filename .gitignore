@@ -4,6 +4,9 @@ myApp.log
 *.class
 *.iml
 
+#properties
+application.properties
+
 # Paho MQTT Client lock
 /paho*/
 
@@ -85,3 +88,4 @@ Temporary Items
 .apdisk
 
 
+src/main/resources/application.properties
