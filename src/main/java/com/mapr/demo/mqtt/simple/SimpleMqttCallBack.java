@@ -37,6 +37,8 @@ public class SimpleMqttCallBack implements MqttCallback {
 	  System.out.println("reception : " + topic.toString() +" : "+ mqttMessage.toString());
 	  db = new ConnectionDb();
 	  try {
+		  
+		  // pour une requete
 		  if(topic.contains("request")) {
 			  LOGGER.debug("on est dans request");			  
 			  
@@ -48,6 +50,8 @@ public class SimpleMqttCallBack implements MqttCallback {
 				  db.findIot();
 			  }
 		  }
+		  
+		  // pour sensor
 		  else if(topic.contains("sensor")) {
 			  LOGGER.debug("on est dans sensor");
 			  db.CreateIotMqtt(topic, new String(mqttMessage.getPayload()));
@@ -56,6 +60,8 @@ public class SimpleMqttCallBack implements MqttCallback {
 		  else if(topic.contains("update")) {
 			  
 		  }
+		  
+		  // On ne fait rien
 		  else {
 			  LOGGER.debug("j'ai reçu mais je n'en fais rien");
 //			  DBLogging.writeToDb(topic, new String(mqttMessage.getPayload())); 
