@@ -47,7 +47,6 @@ public class SimpleMqttCallBack implements MqttCallback {
 				  Publisher.send("retour/nodemcu", "123412234");
 			  }
 			  else if(mqttMessage.equals("findiot")) {
-				  db.findIot();
 			  }
 		  }
 		  
@@ -55,7 +54,6 @@ public class SimpleMqttCallBack implements MqttCallback {
 		  else if(topic.contains("sensor")) {
 			  LOGGER.debug("on est dans sensor");
 			  db.CreateIotMqtt(topic, new String(mqttMessage.getPayload()));
-//			  db.create();
 		  }
 		  else if(topic.contains("update")) {
 			  
@@ -64,8 +62,6 @@ public class SimpleMqttCallBack implements MqttCallback {
 		  // On ne fait rien
 		  else {
 			  LOGGER.debug("j'ai reçu mais je n'en fais rien");
-//			  DBLogging.writeToDb(topic, new String(mqttMessage.getPayload())); 
-//			  db.CreateIotMqtt(topic, new String(mqttMessage.getPayload()));
 		  }
 		
 	} catch (Exception e) {
